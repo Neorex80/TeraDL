@@ -1,10 +1,9 @@
 // Version
-const version = 'Versi 1.5.5';
+const version = 'Version 1.5.5';
 document.getElementById('app-version').innerText = version;
 
 // Open Information Menu
 document.getElementById('information-button-open').addEventListener('click', () => {
-    console.log('test');
     document.getElementById('information-container').className = 'container-overlay-active poppins';
 });
 
@@ -16,10 +15,10 @@ document.getElementById('information-button-close').addEventListener('click', ()
 // Add Information
 
 const list_qna = [
-    {'question':'Apa itu TeraDL?', 'answer':'TeraDL adalah platform untuk streaming atau mengunduh file Terabox secara gratis dan cepat'},
-    {'question':'Bagaimana cara menggunakannya?', 'answer':'Cukup masukkan URL Terabox yang ingin kamu download, tekan submit, tunggu hingga muncul daftar file, kemudian pilih opsi Download atau Play Streaming'},
-    {'question':'Apa perbedaan download 1, 2, dan 3?', 'answer':'Opsi 1 adalah download URL dengan kecepatan pelan tapi pasti<div class="divisor-spacing"></div>Opsi 2 adalah download URL dengan kecepatan medium<div class="divisor-spacing"></div>Opsi 3 adalah download URL dengan kecepatan tinggi namun sering error'},
-    {'question':'Apakah platform ini resmi?', 'answer':'Platform ini dibuat secara mandiri dan tidak memiliki asosiasi dengan Terabox. Segala tindakan adalah tanggung jawab pengguna'},
+    {'question':'What is TeraDL?', 'answer':'TeraDL is a platform for streaming or downloading Terabox files quickly and for free'},
+    {'question':'How to use it?', 'answer':'Simply enter the Terabox URL you want to download, press submit, wait until the file list appears, then choose the Download or Play Streaming option'},
+    {'question':'What\'s the difference between download options 1, 2, and 3?', 'answer':'Option 1 is a download URL with slow but steady speed<div class="divisor-spacing"></div>Option 2 is a download URL with medium speed<div class="divisor-spacing"></div>Option 3 is a download URL with high speed but often errors'},
+    {'question':'Is this platform official?', 'answer':'This platform is created independently and has no association with Terabox. All actions are the responsibility of the user'},
 ];
 
 function addInfo() {
@@ -69,3 +68,28 @@ function unzoom(element) {
     overlay_zoom.innerHTML = '';
     overlay_zoom.className = 'container-zoom-inactive poppins';
 }
+
+// Add animations for a smoother experience
+document.addEventListener('DOMContentLoaded', () => {
+    // Fade in main content
+    const fullContainer = document.querySelector('.full-container');
+    fullContainer.style.opacity = '0';
+    fullContainer.style.transition = 'opacity 0.5s ease';
+    
+    setTimeout(() => {
+        fullContainer.style.opacity = '1';
+    }, 100);
+    
+    // Animate placeholder text
+    const inputField = document.getElementById('terabox_url');
+    const placeholders = ['Enter Terabox URL', 'Paste link here...', 'Try a Terabox link'];
+    let currentPlaceholder = 0;
+    
+    // Only run this if we're not on a mobile device to avoid distractions
+    if (window.innerWidth > 768) {
+        setInterval(() => {
+            inputField.setAttribute('placeholder', placeholders[currentPlaceholder]);
+            currentPlaceholder = (currentPlaceholder + 1) % placeholders.length;
+        }, 3000);
+    }
+});

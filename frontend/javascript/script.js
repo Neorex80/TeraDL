@@ -45,7 +45,7 @@ function loading2(element_id, active) {
         loadingBox.style.pointerEvents = 'none';
     }
     else {
-        loadingBox.innerHTML = `Failed`;
+        loadingBox.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
         loadingBox.style.pointerEvents = 'auto';
     }
 }
@@ -82,7 +82,6 @@ function sleep(s) {
 }
 
 // Get App Config
-
 async function getConfig() {
     const url = `${api}/get_config`;
     const headers = {'Content-Type':'application/json'};

@@ -5,39 +5,42 @@
 }
 
 .container-overlay-active {
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 120%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    background-color: rgb(255, 255, 255);
+    position: fixed;
+    background-color: #f5f7ff;
     pointer-events: all;
-    z-index: 3;
+    z-index: 10;
     box-sizing: border-box;
-    padding: 80px 0px 20px 0px;
+    padding: 0;
+    overflow-y: auto;
 }
 
 /* Information Button Kanan Atas */
 
 .container-information-button-active {
     position: absolute;
-    right: 3px;
-    top: 9%;
-    width: 25px;
+    right: 15px;
+    top: 15px;
+    width: 35px;
     aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
+    z-index: 11;
+    background-color: rgba(108, 121, 223, 0.1);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .container-information-button-active i {
-    font-size: 14px;
-    color: #6c79df;
+    font-size: 18px;
+    color: #4f5dd8;
     cursor: pointer;
 }
 
@@ -46,12 +49,12 @@
 .container-qna {
     width: 100%;
     max-width: 500px;
-    margin-top: 40px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
     box-sizing: border-box;
-    padding: 0px 20px;
+    padding: 10px 25px 40px;
     overflow: hidden;
 }
 
@@ -59,10 +62,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    line-height: 1.2;
-    gap: 5px;
+    line-height: 1.4;
+    gap: 8px;
     box-sizing: border-box;
     overflow: hidden;
+    background-color: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 5px 15px rgba(108, 121, 223, 0.1);
 }
 
 .box-qna span {
@@ -72,21 +79,21 @@
 }
 
 .box-qna .question {
-    color: #2a3bbd;
-    font-size: 16px;
-    font-weight: 500;
+    color: #4f5dd8;
+    font-size: 17px;
+    font-weight: 600;
 }
 
 .box-qna .answer {
-    color: #2a3bbd;
-    font-size: 12px;
+    color: #616fca;
+    font-size: 14px;
     font-weight: 400;
-    padding: 0px 30px 0px 0px;
+    padding: 0px 5px;
     text-align: justify;
 }
 
 .answer .divisor-spacing {
-    height: 5px;
+    height: 8px;
 }
 
 /* Contact */
@@ -94,8 +101,7 @@
 .container-contact {
     width: 100%;
     max-width: 500px;
-    position: absolute;
-    bottom: 160px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -103,7 +109,7 @@
     overflow: hidden;
     box-sizing: border-box;
     padding: 0px 24px;
-    gap: 5px;
+    gap: 15px;
 }
 
 .container-contact a {
@@ -111,27 +117,39 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: #2a3bbd;
+    color: #4f5dd8;
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0 3px 10px rgba(108, 121, 223, 0.08);
+    transition: all 0.2s ease;
+}
+
+.container-contact a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 121, 223, 0.15);
 }
 
 .container-contact a span {
     text-decoration: none;
-    margin-left: 5px;
-    font-size: 12px;
+    margin-left: 12px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .container-contact a i {
     text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 /* Watermark */
 
 .container-watermark {
     width: 100%;
-    height: 30px;
-    position: absolute;
-    bottom: 100px;
+    height: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,11 +157,30 @@
 }
 
 .container-watermark span {
-    color: #4e5bbb;
-    font-size: 12px;
+    color: #6c79df;
+    font-size: 13px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     text-align: center;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(108, 121, 223, 0.08);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .box-qna .question {
+        font-size: 18px;
+    }
+    
+    .box-qna .answer {
+        font-size: 15px;
+    }
+    
+    .container-contact a span {
+        font-size: 15px;
+    }
 }

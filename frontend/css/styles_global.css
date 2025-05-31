@@ -1,11 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background-color: #f5f7ff;
     width: 100dvw;
     height: 100dvh;
     overflow: hidden;
     cursor: default;
+    font-family: "Poppins", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -55,8 +56,8 @@ body {
 }
 
 .spinner2 {
-    border: 2px solid #afb7f8;
-    border-top: 2px solid #6c79df;
+    border: 2px solid #d1d7ff;
+    border-top: 2px solid #4f5dd8;
     border-radius: 50%;
     width: 100%;
     height: 100%;
@@ -66,8 +67,8 @@ body {
 }
 
 .spinner4 {
-    border: 2px solid #afb7f8;
-    border-top: 2px solid #6c79df;
+    border: 2px solid #d1d7ff;
+    border-top: 2px solid #4f5dd8;
     border-radius: 50%;
     width: 100%;
     height: 100%;
@@ -79,14 +80,41 @@ body {
 /* Hover */
 
 .container-input button:hover {
-    background-color: #7684ec;
+    background-color: #4f5dd8;
+    transform: translateY(-2px);
 }
 
 .container-input button:active {
-    background-color: #6470ce;
+    background-color: #3847b6;
+    transform: translateY(0);
 }
 
 .download-button:hover,
 .stream-button:hover {
     filter: brightness(95%);
+    transform: translateY(-1px);
+}
+
+/* Transitions */
+.container-input button,
+.download-button,
+.stream-button {
+    transition: all 0.2s ease;
+}
+
+/* Card hover effect */
+.container-item {
+    transition: all 0.3s ease;
+}
+
+.container-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 5px 15px rgba(108, 121, 223, 0.15);
+}
+
+/* Focus styles for better accessibility */
+.container-input input:focus {
+    border-color: #4f5dd8;
+    box-shadow: 0 0 0 2px rgba(79, 93, 216, 0.2);
+    outline: none;
 }
